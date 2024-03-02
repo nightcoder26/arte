@@ -51,7 +51,7 @@ In conclusion, this platform aims to let student and users teach other and enabl
 - Enable users to schedule meets within the app with an event creation system like Google Calendar.
 - Users can be verified for their skills based on quizzes and tests by the website.
 
-## Project Background
+## Project Background🌿 
 
 This project was initiated and developed by members of the Milestone Club at VIT AP University. Our club is dedicated to fostering innovation, collaboration, and learning among students interested in technology and software development.
 
@@ -59,13 +59,13 @@ This project was initiated and developed by members of the Milestone Club at VIT
 
 The Milestone Club at VIT AP University is a student-driven organization aimed at providing a platform for students to explore and develop their skills in various technological domains. We focus on organizing  collaborative projects to enhance practical knowledge and encourage innovation.
 
-#### Project Contributors
+#### Project Contributors👥🫂
 
 We extend our gratitude to the contributors and members of the Milestone Club who participated in the development of this project. Their dedication and efforts have been instrumental in bringing this project to fruition.
 
-### Follow Us on Instagram
+### Follow Us on Instagram and LinkedIn 📸
 
-For updates, events, and highlights from the Milestone Club, follow us on [Instagram](https://www.instagram.com/milestone_club_vitap/).
+For updates, events, and highlights from the Milestone Club, follow us on [Instagram](https://www.instagram.com/milestone_club_vitap/), [LinkedIn](https://www.linkedin.com/company/the-milestone-club-vit-ap/)
 
 
 <h2> Our Contributors 💗</h2>
@@ -75,7 +75,7 @@ For updates, events, and highlights from the Milestone Club, follow us on [Insta
 </a>
 
 
-## Contribution Guidelines
+## Contribution Guidelines 📝✅
 
 Please read our [Contribution Guidelines](CONTRIBUTING.md) before contributing to this project.
 
