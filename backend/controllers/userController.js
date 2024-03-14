@@ -45,4 +45,38 @@ const updateUserById = async (req, res) => {
   }
 };
 
+// router.post("/", UserController.createUser);
+const createUser = async (req, res) => {
+  try {
+    const user = new User({
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      mobile: req.body.mobile,
+      badges: req.body.badges,
+      profileInfo: req.body.profileInfo,
+    });
+    const newUser = await user.save();
+    res.status(201).json(newUser);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: `Error in creating a new user /user ${err}` });
+  }
+};
+// router.delete("/:id", UserController.deleteUser);
+
+const deleteUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    await user.remove();
+    res.json({ message: "User deleted" });
+  } catch (err) {
+    res.status(500).json({ message: `Error deleting user /user ${err}` });
+  }
+};
+
 module.exports = { getUsers, getUserById, updateUserById };
