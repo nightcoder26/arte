@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
+import "./index.css";
 import Landing from "./pages/Landing";
 import Assessments from "./pages/Assessments";
 import Chats from "./pages/Chats";
