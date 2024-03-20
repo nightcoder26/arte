@@ -79,4 +79,27 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, getUserById, updateUserById };
+const login = async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.body.username });
+    console.log(user);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    if (user.password !== req.body.password) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+    res.json({ message: "Login successful" });
+  } catch (err) {
+    res.status(500).json({ message: `Error logging in /user/login ${err}` });
+  }
+};
+
+module.exports = {
+  getUsers,
+  getUserById,
+  updateUserById,
+  createUser,
+  deleteUser,
+  login,
+};
