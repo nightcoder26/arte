@@ -4,7 +4,8 @@ const userRoute = require("./routes/userRoute.js");
 const express = require("express");
 const PORT = 5000;
 const app = express();
-
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 app.use("/user", userRoute);

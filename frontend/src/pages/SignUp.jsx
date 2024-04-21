@@ -1,52 +1,47 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+// import { Redirect } from "react-router-dom";
 
 const SignUp = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userName, password, email, mobile);
+    try {
+      const response = await fetch("", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userName, password, email, mobile }),
+      });
+      const data = await response.json();
+      if (data.token) {
+        // Store token in local storage
+        localStorage.setItem("token", data.token);
+        // Set redirect to true
+        setRedirect(true);
+      }
+    } catch (error) {
+      console.error("Error signing up:", error);
+    }
   };
+
+  if (redirect) {
+    // return <Redirect to="/home" />;
+  }
+
   return (
     <>
       <div className="signup">
         <h1>Signup</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Username"
-            required
-            onChange={(e) => setUserName(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="Mobile"
-            onChange={(e) => setMobile(e.target.value)}
-          />
-
-          <button type="submit">Signup</button>
-          <p className="message">
-            Already a member? <a href="/login">Login</a>
-          </p>
-        </form>
+        <form onSubmit={handleSubmit}>{/* Form inputs */}</form>
       </div>
     </>
   );
 };
+
 export default SignUp;
