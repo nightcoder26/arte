@@ -11,7 +11,7 @@ const MyProfile = () => {
       <div className="profile-content">
         <h2>My Profile</h2>
         <div>
-          <img src={logo} />
+          <img src={logo} alt="Profile Picture" />
         </div>
         {/* <p>Navbar User info , badges, skills, basic profile info </p> */}
         {/* <div>
