@@ -9,6 +9,7 @@ router.get("/:id", UserController.getUserById);
 router.put("/update/:id", UserController.updateUserById);
 router.post("/login", UserController.login);
 router.post("/signup", UserController.createUser);
+router.post("/google", UserController.auth);
 // router.delete("/:id", UserController.deleteUser);
 
 module.exports = router;

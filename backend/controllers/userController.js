@@ -1,7 +1,9 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+const dotenv = require("dotenv");
+dotenv.config();
+const { OAuth2Client } = require("google-auth-library");
 const getUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -153,7 +155,7 @@ const login = async (req, res) => {
         expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
         httpOnly: true,
       };
-      res.status(200).cookie("token", token).json({
+      res.status(200).cookie("token", token, options).json({
         success: true,
         token,
         user,
@@ -189,6 +191,27 @@ const login = async (req, res) => {
 //     res.status(500).json({ message: `Error in user signup: ${error.message}` });
 //   }
 // };
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+const auth = async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.header("Referrer-Policy", "no-referrer-when-downgrade");
+
+  const redirectUrl = "http://127.0.0.1:3000/oauth";
+
+  const oAuth2Client = new OAuth2Client(
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET,
+    redirectUrl
+  );
+
+  const authorizeUrl = oAuth2Client.generateAuthUrl({
+    access_type: "offline",
+    scope:
+      "https://www.googleapis.com/auth/userinfo.profile openid https://www.googleapis.com/auth/userinfo.email",
+    prompt: "consent",
+  });
+};
 module.exports = {
   getUsers,
   getUserById,
@@ -196,4 +219,5 @@ module.exports = {
   createUser,
   deleteUser,
   login,
+  auth,
 };
