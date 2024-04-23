@@ -1,0 +1,31 @@
+.profile-container {
+  display: flex;
+}
+
+.profile-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.profile-content h2 {
+  margin-bottom: 20px;
+}
+
+.profile-content img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-content h3 {
+  margin-bottom: 10px;
+}
+
+.profile-content ul {
+  padding-left: 20px;
+}
+
+.profile-content p {
+  margin-bottom: 10px;
+}

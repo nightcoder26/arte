@@ -1,0 +1,60 @@
+.connect-container {
+  display: flex;
+}
+.connect-full {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.match-box {
+  margin: 10px;
+}
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 200px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  background-color: #8333ea;
+}
+
+.filter-options select {
+  padding: 10px;
+}
+
+.match-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* .search-button {
+} */
+
+.match-card {
+  width: 35rem;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.match-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}

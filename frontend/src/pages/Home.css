@@ -1,0 +1,12 @@
+.home-container {
+  display: flex;
+  flex-direction: row;
+}
+.username {
+  color: #8333ea;
+}
+
+.welcome-text {
+  font-size: 3rem;
+  margin: 20px;
+}
