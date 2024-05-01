@@ -2,6 +2,7 @@
 
 ## A Skill exchange platform
 
+<!--
 ### Motive:
 Many students have a hard time learning new skills all by themselves through online resources or courses, and most of the time they would need help from someone who has expertise in that particular skill. This platform acts like a give-and-take connection, connecting people who can teach each other. This can encourage students to work together by enabling peer-to-peer learning. This platform is all about helping each other out.
 
@@ -49,15 +50,15 @@ In conclusion, this platform aims to let student and users teach other and enabl
 ### Future scope:
 - Allow different forms of communication like audio and video within the website instead of discord.
 - Enable users to schedule meets within the app with an event creation system like Google Calendar.
-- Users can be verified for their skills based on quizzes and tests by the website.
+- Users can be verified for their skills based on quizzes and tests by the website. -->
 
-## Project Background🌿 
+## Project Background🌿
 
 This project was initiated and developed by members of the Milestone Club at VIT AP University. Our club is dedicated to fostering innovation, collaboration, and learning among students interested in technology and software development.
 
 ### About Milestone Club, VIT AP University
 
-The Milestone Club at VIT AP University is a student-driven organization aimed at providing a platform for students to explore and develop their skills in various technological domains. We focus on organizing  collaborative projects to enhance practical knowledge and encourage innovation.
+The Milestone Club at VIT AP University is a student-driven organization aimed at providing a platform for students to explore and develop their skills in various technological domains. We focus on organizing collaborative projects to enhance practical knowledge and encourage innovation.
 
 #### Project Contributors👥🫂
 
@@ -67,18 +68,16 @@ We extend our gratitude to the contributors and members of the Milestone Club wh
 
 For updates, events, and highlights from the Milestone Club, follow us on [Instagram](https://www.instagram.com/milestone_club_vitap/), [LinkedIn](https://www.linkedin.com/company/the-milestone-club-vit-ap/)
 
-
 <h2> Our Contributors 💗</h2>
 
 <a href="https://github.com/nightcoder26/arte/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=nightcoder26/arte&max=400&columns=20" />
 </a>
 
-
 ## Contribution Guidelines 📝✅
 
 Please read our [Contribution Guidelines](CONTRIBUTING.md) before contributing to this project.
 
 ## License
-This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
 
+This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
