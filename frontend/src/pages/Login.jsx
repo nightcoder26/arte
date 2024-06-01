@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {proxy} from "../../utils/proxy";
 const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     console.log(username, password);
     try {
-      const response = await fetch("http://localhost:5000/user/login", {
+      const response = await fetch(`${proxy}/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
