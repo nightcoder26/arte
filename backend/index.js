@@ -2,7 +2,7 @@ const cors = require("cors");
 const { connectDatabase } = require("./connection.js");
 const userRoute = require("./routes/userRoute.js");
 const express = require("express");
-const PORT = 5000;
+const PORT = 3000;
 const app = express();
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());

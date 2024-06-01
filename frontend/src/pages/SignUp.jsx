@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {proxy} from "../../utils/proxy";
 // import { Redirect } from "react-router-dom";
 
 const SignUp = () => {
@@ -29,12 +30,12 @@ const SignUp = () => {
     // }
     e.preventDefault();
     try {
-      const respone = await fetch("http://localhost:5000/signup", {
+      const response = await fetch(`${proxy}/user/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password, email }),
+        body: JSON.stringify({ userName, password, email }),
       });
 
       const data = await response.json();
@@ -78,6 +79,7 @@ const SignUp = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
+          <button>SignUp</button>
         </form>
       </div>
     </>
