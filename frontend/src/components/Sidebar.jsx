@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo2 from "../images/2.png";
+import logo2 from "../images/ARTE_LOGO.png";
 import "./Sidebar.css";
 const Sidebar = () => {
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <ul>
         <li>
           <img src={logo2} alt="ARTE Logo" width={200} align="center" />
@@ -31,7 +31,23 @@ const Sidebar = () => {
           <Link to="/settings">Settings</Link>
         </li>
       </ul>
-    </div>
+    </aside>
+    // <aside id="sidebar">
+    //   <ul>
+    //     <li>
+    //       <a href="#">Home</a>
+    //     </li>
+    //     <li>
+    //       <a href="#">About</a>
+    //     </li>
+    //     <li>
+    //       <a href="#">Services</a>
+    //     </li>
+    //     <li>
+    //       <a href="#">Contact</a>
+    //     </li>
+    //   </ul>
+    // </aside>
   );
 };
 

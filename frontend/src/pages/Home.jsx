@@ -6,9 +6,12 @@ const Home = () => {
     <>
       <div className="home-container">
         <Sidebar />
-        <p className="welcome-text">
-          Welcome to Arte, <strong className="username">Username</strong>
-        </p>
+        <div>
+          <p className="welcome-text">
+            Welcome to Arte, <strong className="username">Username</strong>
+          </p>
+        </div>
+        <div className="right-home">Right side suggestions</div>
       </div>
     </>
   );
