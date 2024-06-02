@@ -3,7 +3,7 @@ import {proxy} from "../../utils/proxy";
 // import { Redirect } from "react-router-dom";
 
 const SignUp = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [redirect, setRedirect] = useState(false);
@@ -16,7 +16,7 @@ const SignUp = () => {
     //     headers: {
     //       "Content-Type": "application/json",
     //     },
-    //     body: JSON.stringify({ userName, password, email, mobile }),
+    //     body: JSON.stringify({ username, password, email, mobile }),
     //   });
     //   const data = await response.json();
     //   if (data.token) {
@@ -35,10 +35,11 @@ const SignUp = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userName, password, email }),
+        body: JSON.stringify({ username, password, email }),
       });
 
       const data = await response.json();
+      console.log(data);
       if (data.token) {
       }
     } catch (error) {
@@ -56,11 +57,11 @@ const SignUp = () => {
         <h1>Signup</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Username:
+            username:
             <input
               type="text"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
+              value={username}
+              onChange={(e) => setusername(e.target.value)}
             />
           </label>
           <label>
