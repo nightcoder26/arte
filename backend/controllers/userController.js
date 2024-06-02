@@ -129,39 +129,21 @@ const login = async (req, res) => {
   // }
 
   try {
-    //get data
     const { username, password } = req.body;
-    //check
     if (!(username && password)) {
       res.status(400).send("Input all fields");
     }
-
-    // find user
     const user = await User.findOne({ username });
-    //not found
     if (!user) {
       res.status(404).send("User not found");
     }
-    // check password
     const checkPassword = await bcrypt.compare(password, user.password);
     if (user && checkPassword) {
-      const token = jwt.sign({ id: user._id }, "lmao", {
-        expiresIn: "2h",
-      });
-      user.token = token;
-      user.password = undefined;
-      //cookie
-      const options = {
-        expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-        httpOnly: true,
-      };
-      res.status(200).cookie("token", token, options).json({
-        success: true,
-        token,
-        user,
-      });
+      const token = jwt.sign({ id: user._id }, "lmao", {expiresIn: "2h"});
+      return res.cookie("access_token", token, {httpOnly: true,})
+      .status(200)
+      .json({success:true,user})
     }
-    //success
   } catch (err) {
     console.log(err);
   }
