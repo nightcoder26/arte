@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {proxy} from "../../utils/proxy";
+import OAuth from "../components/OAuth";
 const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -58,6 +59,9 @@ const Login = () => {
           </p>
           {loginError && <p className="error">{loginError}</p>}
         </form>
+      </div>
+      <div>
+        <OAuth/>
       </div>
     </>
   );

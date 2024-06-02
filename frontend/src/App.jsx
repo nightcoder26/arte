@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import MyProfile from "./pages/MyProfile";
 import Settings from "./pages/Settings";
 import SignUp from "./pages/SignUp";
+import OAuth from "./components/OAuth";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path='/google-o-auth' element={<OAuth />} />
           <Route path="/home" element={<Home />} />
           <Route path="/assessments" element={<Assessments />} />
           <Route path="/chats" element={<Chats />} />
