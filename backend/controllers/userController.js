@@ -194,6 +194,47 @@ const auth = async (req, res) => {
     prompt: "consent",
   });
 };
+
+const google = async(req,res) => {
+  try {
+    const username = req.body.name;
+    const email = req.body.email;
+    if (!(username && email)) {
+      res.status(400).send("All inputs are required");
+    }
+    const user = await User.findOne({ email });
+    if (user) {
+      // login 
+        const token = jwt.sign({ id: user._id }, "lmao", {expiresIn: "2h"});
+        return res.cookie("access_token", token, {httpOnly: true,})
+        .status(200)
+        .json({success:true,user})
+    }
+
+    const generatePassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
+    const encPassword = await bcrypt.hash(generatePassword, 10);
+
+    const newUser = await User.create({
+      username,
+      email,
+      password: encPassword,
+    });
+
+
+    await newUser.save();
+    console.log(newUser);
+    const token = jwt.sign({ id: newUser._id }, "lmao", {expiresIn: "2h"});
+        return res.cookie("access_token", token, {httpOnly: true,})
+        .status(200)
+        .json({success:true,newUser})
+
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+
 module.exports = {
   getUsers,
   getUserById,
@@ -202,4 +243,5 @@ module.exports = {
   deleteUser,
   login,
   auth,
+  google
 };
