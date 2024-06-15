@@ -1,0 +1,149 @@
+.arte-strong {
+  color: #ae81f5;
+  cursor: pointer;
+}
+.arte-strong:hover {
+  transition: 0.8s ease-in-out 0.2s;
+  color: #8333e9;
+}
+
+.landing-bg {
+  background-image: url("../images/landing.jpg");
+  background-size: cover;
+}
+
+.navbar-fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.banner-container {
+  padding-top: 4rem;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-content {
+  color: white;
+  /* display: flex;
+  flex-direction: column; */
+
+  text-align: center;
+}
+
+.banner-title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.banner-subtitles {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.banner-subtitle {
+  font-size: 2.3rem;
+  padding: 0;
+  margin: 0;
+}
+
+.banner-description {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.started-button-div {
+  padding: 1rem;
+}
+.signup-button {
+  margin-top: 2rem;
+  z-index: 0;
+}
+.signup-button:hover {
+  background-color: #9ca3af; /* hover:bg-gray-400 */
+}
+
+.features-section {
+  min-height: 500px;
+}
+
+.features {
+  color: transparent;
+}
+
+.signup-button:hover {
+  transition: 0.8s ease-in ease-out 0.2s;
+  transform: scale(1.05);
+  animation: shake 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+.signup-button:active {
+  transition: 0.8s ease-in ease-out 0.2s;
+  transform: scale(1.05);
+  animation: shake 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  15%,
+  85% {
+    transform: rotate(-10deg);
+  }
+  30%,
+  70% {
+    transform: rotate(10deg);
+  }
+  45%,
+  55% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+.features-section h2 {
+  color: #fff;
+
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.feature-card {
+  background-color: #9333ea;
+  border-radius: 0.4rem;
+  color: #fff;
+  padding: 1rem;
+  width: fit-content;
+}
+.feature-card h3 {
+  margin-bottom: 1rem; /* Space below card title */
+  font-weight: 600;
+}
+
+/* Responsive styles for different screen sizes */
+@media (min-width: 768px) {
+  .features-section {
+    padding: 2rem 0;
+  }
+  .features-section h2 {
+    margin-bottom: 3rem;
+  }
+  .feature-card {
+    margin-bottom: 2rem;
+  }
+  .features-section {
+    display: flex;
+    justify-content: center;
+  }
+  .max-w-6xl {
+    max-width: 720px; /* Adjust max-width for your content */
+  }
+}

@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
+import logo from "../images/ARTE_LOGO.png";
+import "./Navbar.css";
 export default function Navbar() {
   const currentUser = null;
 
   return (
-    <header className="shadow-md  bg-gray-800">
+    <header className="shadow-md my-navbar">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <h1 className="font-bold text-sm sm:text-xl flex-wrap">
-            <span className="text-white">Arte</span>
+          <h1 className="font-bold text-sm sm:text-xl flex-wrap my-heading">
+            <img src={logo} alt="logo" className="h-10 w-10 logo" />
+            <span className="text-white arte-name">Arte</span>
+            <span className="text-purple-500">.</span>
           </h1>
         </Link>
 
@@ -31,7 +35,6 @@ export default function Navbar() {
           </Link>
         </ul>
       </div>
-      <hr />
     </header>
   );
 }
