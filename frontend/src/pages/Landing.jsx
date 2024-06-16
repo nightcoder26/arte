@@ -2,6 +2,10 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import "./Landing.css";
 import hands from "../images/learn.jpg";
+import { LuHeartHandshake } from "react-icons/lu";
+import { FaUserGroup } from "react-icons/fa6";
+import { FaShareAlt } from "react-icons/fa";
+
 const Landing = () => {
   return (
     <>
@@ -35,7 +39,7 @@ const Landing = () => {
             {/* <a href="/signup" className="signup-button">
               Get started with Arte
             </a> */}
-            <button className="signup-button no-underline group cursor-pointer relative shadow-md  rounded-full p-px text-base font-semibold leading-6  text-white inline-block">
+            <button className="signup-button no-underline group relative shadow-md  rounded-full p-px text-base font-semibold leading-6  text-white inline-block">
               <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(255,255,255,1)_0%,rgba(255,255,255,0.5)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
               </span>
@@ -64,19 +68,29 @@ const Landing = () => {
 
         {/* features */}
         <section class="features-section">
-          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2>Key Features</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div class="feature-card">
-                <h3>Collaboration</h3>
+          <div class="features">
+            <h2 className="key-features">What's In It For You</h2>
+            <div class="boxes">
+              <div class="feature-card ">
+                <div className="heading-icon">
+                  <h3>Collaboration</h3>
+                  <LuHeartHandshake className="icon" />
+                </div>
+
                 <p>Connect with others to exchange skills and knowledge</p>
               </div>
               <div class="feature-card">
-                <h3>Study Groups</h3>
+                <div className="heading-icon">
+                  <h3>Study Groups</h3>
+                  <FaUserGroup className="icon" />
+                </div>
                 <p>Learn by joining and scheduling study sessions</p>
               </div>
               <div class="feature-card">
-                <h3>Sharing & Feedback</h3>
+                <div className="heading-icon">
+                  <h3> Feedback</h3>
+                  <FaShareAlt className="icon" />
+                </div>
                 <p>Share your work and receive feedback from the community</p>
               </div>
             </div>
