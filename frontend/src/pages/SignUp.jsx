@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import {proxy} from "../../utils/proxy";
+import { proxy } from "../../utils/proxy";
 // import { Redirect } from "react-router-dom";
+import OAuth from "../components/OAuth";
 
 const SignUp = () => {
   const [username, setusername] = useState("");
@@ -82,6 +83,9 @@ const SignUp = () => {
           </label>
           <button>SignUp</button>
         </form>
+      </div>
+      <div>
+        <OAuth />
       </div>
     </>
   );

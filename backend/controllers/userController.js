@@ -81,22 +81,6 @@ const createUser = async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-  // try {
-  //   const user = new User({
-  //     username: req.body.username,
-  //     password: req.body.password,
-  //     email: req.body.email,
-  //     mobile: req.body.mobile,
-  //     badges: req.body.badges,
-  //     profileInfo: req.body.profileInfo,
-  //   });
-  //   const newUser = await user.save();
-  //   res.status(201).json(newUser);
-  // } catch (err) {
-  //   res
-  //     .status(500)
-  //     .json({ message: `Error in creating a new user /user ${err}` });
-  // }
 };
 // router.delete("/:id", UserController.deleteUser);
 
@@ -114,20 +98,6 @@ const deleteUser = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  // try {
-  //   const user = await User.findOne({ username: req.body.username });
-  //   console.log(user);
-  //   if (!user) {
-  //     return res.status(404).json({ message: "User not found" });
-  //   }
-  //   if (user.password !== req.body.password) {
-  //     return res.status(401).json({ message: "Invalid credentials" });
-  //   }
-  //   res.json({ message: "Login successful" });
-  // } catch (err) {
-  //   res.status(500).json({ message: `Error logging in /user/login ${err}` });
-  // }
-
   try {
     const { username, password } = req.body;
     if (!(username && password)) {
@@ -139,10 +109,11 @@ const login = async (req, res) => {
     }
     const checkPassword = await bcrypt.compare(password, user.password);
     if (user && checkPassword) {
-      const token = jwt.sign({ id: user._id }, "lmao", {expiresIn: "2h"});
-      return res.cookie("access_token", token, {httpOnly: true,})
-      .status(200)
-      .json({success:true,user})
+      const token = jwt.sign({ id: user._id }, "lmao", { expiresIn: "2h" });
+      return res
+        .cookie("access_token", token, { httpOnly: true })
+        .status(200)
+        .json({ success: true, user });
     }
   } catch (err) {
     console.log(err);
@@ -195,7 +166,7 @@ const auth = async (req, res) => {
   });
 };
 
-const google = async(req,res) => {
+const google = async (req, res) => {
   try {
     const username = req.body.name;
     const email = req.body.email;
@@ -204,14 +175,17 @@ const google = async(req,res) => {
     }
     const user = await User.findOne({ email });
     if (user) {
-      // login 
-        const token = jwt.sign({ id: user._id }, "lmao", {expiresIn: "2h"});
-        return res.cookie("access_token", token, {httpOnly: true,})
+      // login
+      const token = jwt.sign({ id: user._id }, "lmao", { expiresIn: "2h" });
+      return res
+        .cookie("access_token", token, { httpOnly: true })
         .status(200)
-        .json({success:true,user})
+        .json({ success: true, user });
     }
 
-    const generatePassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
+    const generatePassword =
+      Math.random().toString(36).slice(-8) +
+      Math.random().toString(36).slice(-8);
     const encPassword = await bcrypt.hash(generatePassword, 10);
 
     const newUser = await User.create({
@@ -220,20 +194,17 @@ const google = async(req,res) => {
       password: encPassword,
     });
 
-
     await newUser.save();
     console.log(newUser);
-    const token = jwt.sign({ id: newUser._id }, "lmao", {expiresIn: "2h"});
-        return res.cookie("access_token", token, {httpOnly: true,})
-        .status(200)
-        .json({success:true,newUser})
-
-  }
-  catch (err) {
+    const token = jwt.sign({ id: newUser._id }, "lmao", { expiresIn: "2h" });
+    return res
+      .cookie("access_token", token, { httpOnly: true })
+      .status(200)
+      .json({ success: true, newUser });
+  } catch (err) {
     console.log(err);
   }
-}
-
+};
 
 module.exports = {
   getUsers,
@@ -243,5 +214,5 @@ module.exports = {
   deleteUser,
   login,
   auth,
-  google
+  google,
 };
