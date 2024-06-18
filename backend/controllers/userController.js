@@ -120,31 +120,6 @@ const login = async (req, res) => {
   }
 };
 
-// const signup = async (req, res) => {
-//   try {
-//     // Check if the username already exists
-//     const existingUser = await User.findOne({ username: req.body.username });
-//     if (existingUser) {
-//       return res.status(400).json({ message: "Username already exists" });
-//     }
-
-//     const newUser = new User({
-//       username: req.body.username,
-//       password: req.body.password,
-//       email: req.body.email,
-//       mobile: req.body.mobile,
-//       badges: req.body.badges,
-//       profileInfo: req.body.profileInfo,
-//     });
-
-//     const savedUser = await newUser.save();
-
-//     res.status(201).json(savedUser);
-//   } catch (error) {
-//     res.status(500).json({ message: `Error in user signup: ${error.message}` });
-//   }
-// };
-
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 const auth = async (req, res) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:5173");
