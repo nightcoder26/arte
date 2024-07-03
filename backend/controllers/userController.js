@@ -101,11 +101,11 @@ const login = async (req, res) => {
   try {
     const { username, password } = req.body;
     if (!(username && password)) {
-      res.status(400).send("Input all fields");
+      return res.status(400).send("Input all fields");
     }
     const user = await User.findOne({ username });
     if (!user) {
-      res.status(404).send("User not found");
+      return res.status(404).send("User not found");
     }
     const checkPassword = await bcrypt.compare(password, user.password);
     if (user && checkPassword) {
@@ -113,10 +113,12 @@ const login = async (req, res) => {
       return res
         .cookie("access_token", token, { httpOnly: true })
         .status(200)
-        .json({ success: true, user });
+        .json({ token }); // Ensure token is sent back in the response
     }
+    return res.status(401).send("Invalid credentials");
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    res.status(500).send("Server error");
   }
 };
 
@@ -143,41 +145,50 @@ const auth = async (req, res) => {
 
 const google = async (req, res) => {
   try {
-    const username = req.body.name;
-    const email = req.body.email;
-    if (!(username && email)) {
-      res.status(400).send("All inputs are required");
+    const { name, email, photo } = req.body;
+
+    if (!(name && email)) {
+      return res.status(400).send("All inputs are required");
     }
-    const user = await User.findOne({ email });
+
+    let user = await User.findOne({ email });
+
     if (user) {
-      // login
-      const token = jwt.sign({ id: user._id }, "lmao", { expiresIn: "2h" });
+      // User exists, generate token
+      const token = jwt.sign({ id: user._id }, "lmao", {
+        expiresIn: "2h",
+      });
       return res
         .cookie("access_token", token, { httpOnly: true })
         .status(200)
         .json({ success: true, user });
     }
 
-    const generatePassword =
-      Math.random().toString(36).slice(-8) +
-      Math.random().toString(36).slice(-8);
-    const encPassword = await bcrypt.hash(generatePassword, 10);
+    // User doesn't exist, create new user
+    const randomPassword = Math.random().toString(36).slice(-8); // Example of generating an 8-character random password
 
-    const newUser = await User.create({
-      username,
+    // Hash the random password
+    const hashedPassword = await bcrypt.hash(randomPassword, 10);
+
+    user = new User({
+      username: name,
       email,
-      password: encPassword,
+      password: hashedPassword,
+      photoURL: photo,
+    });
+    await user.save();
+
+    const token = jwt.sign({ id: user._id }, "lmao", {
+      expiresIn: "2h",
     });
 
-    await newUser.save();
-    console.log(newUser);
-    const token = jwt.sign({ id: newUser._id }, "lmao", { expiresIn: "2h" });
-    return res
+    res
       .cookie("access_token", token, { httpOnly: true })
       .status(200)
-      .json({ success: true, newUser });
+      .json({ success: true, user });
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    res.status(500).send("Server error");
   }
 };
 

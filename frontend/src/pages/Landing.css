@@ -5,13 +5,13 @@
   transition: 0.8s ease-in-out 0.2s;
   color: #8333e9;
 }
-::-webkit-scrollbar {
+.landing-bg::-webkit-scrollbar {
   width: 10px;
 }
-::-webkit-scrollbar-track {
+.landing-bg::-webkit-scrollbar-track {
   background-image: url("../images/SCROLL.jpg");
 }
-::-webkit-scrollbar-thumb {
+.landing-bg::-webkit-scrollbar-thumb {
   cursor: pointer;
   border-radius: 10px;
   background-image: url("../images/SCROLL-THUMB.png");

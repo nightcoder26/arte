@@ -16,9 +16,9 @@ export default function Navbar() {
         </Link>
 
         <ul className="flex gap-4 ">
-          <Link to="/home">
+          {/* <Link to="/">
             <li className=" text-white hover:underline">Home</li>
-          </Link>
+          </Link> */}
           <Link to="/about">
             <li className=" text-white hover:underline">About</li>
           </Link>

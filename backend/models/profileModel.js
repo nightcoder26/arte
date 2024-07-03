@@ -6,6 +6,14 @@ const profileInfoSchema = new mongoose.Schema({
   experience: { type: String },
   education: { type: String },
   skills: [{ type: String }],
+  skillsToLearn: [{ type: String }],
+  bio: { type: String },
+  github: { type: String },
+  linkedin: { type: String },
+  twitter: { type: String },
+  instagram: { type: String },
+  youtube: { type: String },
+
   address: { type: String },
 });
 

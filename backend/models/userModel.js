@@ -6,8 +6,11 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   email: { type: String, required: true },
   token: { type: String },
-  badges: [{ type: mongoose.Schema.Types.ObjectId, ref: "Badge" }],
-  profileInfo: { type: mongoose.Schema.Types.ObjectId, ref: "ProfileInfo" },
+  profile: { type: mongoose.Schema.Types.ObjectId, ref: "ProfileInfo" },
+  friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  friendRequests: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  sentRequests: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  profilePicture: { type: String },
 });
 
 const User = mongoose.model("User", userSchema);

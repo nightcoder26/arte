@@ -10,6 +10,7 @@ router.put("/update/:id", UserController.updateUserById);
 router.post("/login", UserController.login);
 router.post("/signup", UserController.createUser);
 router.post("/google", UserController.google);
+
 // router.delete("/:id", UserController.deleteUser);
 
 module.exports = router;
