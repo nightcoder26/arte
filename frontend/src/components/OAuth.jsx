@@ -3,6 +3,9 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "../../utils/firebase.js";
 import { useNavigate } from "react-router-dom";
 import { proxy } from "../../utils/proxy.js";
+import { FcGoogle } from "react-icons/fc";
+
+import "./OAuth.css";
 export default function OAuth() {
   const navigate = useNavigate();
 
@@ -33,12 +36,11 @@ export default function OAuth() {
     }
   };
   return (
-    <button
-      type="button"
-      onClick={handleGoogleClick}
-      className="text-red-700 p-3 rounded-lg uppercase hover:opacity-95"
-    >
-      Continue with google
-    </button>
+    <div className="google-div">
+      <FcGoogle size="1.5em" className="google-icon" />
+      <button type="button" onClick={handleGoogleClick} className="google-btn">
+        Continue with google
+      </button>
+    </div>
   );
 }

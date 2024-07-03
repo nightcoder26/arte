@@ -3,6 +3,7 @@ const router = express.Router();
 const dotenv = require("dotenv");
 dotenv.config();
 const { OAuth2Client } = require("google-auth-library");
+const { User } = require("./models/userModel");
 
 const getUserData = async (access_token) => {
   const response = await fetch(
@@ -25,8 +26,14 @@ router.get("/", async (req, res) => {
     await oAuth2Client.setCredentials(response.tokens);
     console.log("Tokens received");
     const user = oAuth2Client.credentials;
-    console.log("creds", user);
+    // console.log("creds", user.user);
+
     await getUserData(user.access_token);
+    if (!user) {
+      res.status(401).send("Unauthorized");
+      console.log(user.email);
+    }
+    res.status(200).send("Success");
   } catch (err) {
     console.log(err, "error with google auth");
   }
