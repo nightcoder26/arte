@@ -5,17 +5,6 @@
   transition: 0.8s ease-in-out 0.2s;
   color: #8333e9;
 }
-.landing-bg::-webkit-scrollbar {
-  width: 10px;
-}
-.landing-bg::-webkit-scrollbar-track {
-  background-image: url("../images/SCROLL.jpg");
-}
-.landing-bg::-webkit-scrollbar-thumb {
-  cursor: pointer;
-  border-radius: 10px;
-  background-image: url("../images/SCROLL-THUMB.png");
-}
 .landing-bg {
   background-image: url("../images/landing.jpg");
   background-size: cover;
@@ -162,6 +151,22 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+::-webkit-scrollbar {
+  width: 10px !important; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e !important; /* color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000 !important;
+  border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555 !important ; /* color when hovered */
 }
 
 .icon {
